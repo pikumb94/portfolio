@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Mio Game Hub</title>
+  <title>Umberto Picariello – Technical Game Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@100..900&display=swap" rel="stylesheet">
@@ -20,11 +20,10 @@
       --text:    #f0f0f0;
       --muted:   #777;
       --radius:  14px;
-      --max-w:   760px;
+      --max-w:   780px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -33,554 +32,977 @@
       line-height: 1.65;
     }
 
-    /* ══════════════════════════════
-       NAVBAR
-    ══════════════════════════════ */
+    /* ── NAVBAR ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(17,17,17,0.88);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(17,17,17,0.9);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 0 32px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-brand-icon {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #166534);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-      overflow: hidden;
-      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      background: var(--bg3); border: 1px solid var(--border);
     }
     .nav-brand-icon img { width: 100%; height: 100%; object-fit: cover; }
-    .nav-brand-name {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-brand-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
+    .nav-links { display: flex; gap: 2px; list-style: none; }
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 13.5px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: color .2s, background .2s;
+      color: var(--muted); text-decoration: none; font-size: 13px;
+      padding: 6px 11px; border-radius: 8px; transition: color .2s, background .2s;
     }
     .nav-links a:hover { color: var(--text); background: var(--bg3); }
     .nav-links a.active { color: var(--accent); }
-
     .btn-nav {
-      background: var(--accent);
-      color: #000;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      padding: 8px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .2s, transform .15s;
+      background: var(--accent); color: #000; font-family: 'Inter', sans-serif;
+      font-weight: 600; font-size: 13px; padding: 8px 18px; border-radius: 999px;
+      text-decoration: none; transition: background .2s, transform .15s;
     }
     .btn-nav:hover { background: var(--accent2); transform: scale(1.04); }
 
-    /* ══════════════════════════════
-       WRAPPER CENTRATO
-    ══════════════════════════════ */
-    .page {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 80px 24px 64px;
-    }
-
+    /* ── PAGE WRAPPER ── */
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 80px 24px 64px; }
     section { margin-bottom: 72px; }
-
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
-    .hero {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 48px 0 16px;
-    }
-
+    /* ── HERO ── */
+    .hero { display: flex; align-items: center; gap: 40px; padding: 48px 0 16px; }
     .hero-photo {
-      width: 180px;
-      height: 220px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--accent) 0%, #166534 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 72px;
-      flex-shrink: 0;
-      overflow: hidden;
+      width: 160px; height: 200px; border-radius: var(--radius);
+      overflow: hidden; flex-shrink: 0; border: 1px solid var(--border);
+      background: var(--bg3);
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-
-    .hero-text {}
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .hero-role {
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 10px;
+      font-size: 11px; color: var(--accent); font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px;
     }
     .hero-text h1 {
-      font-family: 'Geist', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 14px;
+      font-family: 'Geist', sans-serif; font-size: 34px; font-weight: 900;
+      line-height: 1.12; margin-bottom: 14px;
     }
     .hero-text h1 span { color: var(--accent); }
-    .hero-text p { color: var(--muted); font-size: 14.5px; max-width: 420px; }
-
-    .hero-social {
-      display: flex;
-      gap: 8px;
-      margin-top: 20px;
-    }
+    .hero-text p { color: var(--muted); font-size: 14px; max-width: 400px; line-height: 1.7; }
+    .hero-social { display: flex; gap: 8px; margin-top: 18px; }
     .social-btn {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
-      color: var(--muted);
-      text-decoration: none;
+      height: 34px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--border);
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--muted); text-decoration: none;
       transition: border-color .2s, color .2s, background .2s;
     }
     .social-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(74,222,128,.06); }
 
     /* Stats */
-    .stats-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
+    .stats-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
     .stat-box {
-      flex: 1;
-      min-width: 100px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      text-align: center;
+      flex: 1; min-width: 90px; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 20px; text-align: center;
     }
-    .stat-box .num {
-      font-family: 'Geist', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-    }
-    .stat-box .lbl {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-top: 2px;
-    }
-
-    /* Tech pills */
-    .tech-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .stat-box .num { font-family: 'Geist', sans-serif; font-size: 26px; font-weight: 900; }
+    .stat-box .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 3px; }
+    .tech-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
     .tech-pill {
-      font-size: 12px;
-      padding: 5px 13px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      background: var(--bg2);
+      font-size: 11.5px; padding: 4px 12px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--muted); background: var(--bg2);
     }
 
-    /* ══════════════════════════════
-       PROJECT CARDS
-    ══════════════════════════════ */
+    /* ── PROJECT CARDS ── */
     .project-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      margin-bottom: 16px;
-      transition: border-color .25s, transform .2s;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 28px; margin-bottom: 12px;
+      cursor: pointer; transition: border-color .25s, transform .2s;
     }
-    .project-card:hover { border-color: #3a3a3a; transform: translateY(-2px); }
-
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 14px;
+    .project-card:hover { border-color: #3d3d3d; transform: translateY(-2px); }
+    .project-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+    .project-thumb {
+      width: 64px; height: 64px; border-radius: 10px; overflow: hidden;
+      flex-shrink: 0; border: 1px solid var(--border); background: var(--bg3);
     }
-
-    .project-icon {
-      width: 54px; height: 54px;
-      border-radius: 12px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-thumb-placeholder {
+      width: 64px; height: 64px; border-radius: 10px; flex-shrink: 0;
+      border: 1px solid var(--border); background: var(--bg3);
+      display: flex; align-items: center; justify-content: center; font-size: 28px;
     }
-
-    .project-meta-top {
-      font-size: 11.5px;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: .04em;
-      margin-bottom: 4px;
-    }
-    .project-title {
-      font-family: 'Geist', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .project-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; }
-
-    .project-bullets { list-style: none; margin-bottom: 16px; }
+    .project-meta-top { font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: .04em; margin-bottom: 4px; }
+    .project-title { font-family: 'Geist', sans-serif; font-size: 19px; font-weight: 800; line-height: 1.2; }
+    .project-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .project-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; line-height: 1.65; }
+    .project-bullets { list-style: none; margin-bottom: 14px; }
     .project-bullets li {
-      font-size: 13.5px;
-      color: #aaa;
-      padding: 3px 0 3px 16px;
-      position: relative;
+      font-size: 13px; color: #aaa; padding: 2px 0 2px 15px; position: relative;
     }
     .project-bullets li::before {
-      content: '·';
-      position: absolute; left: 4px;
-      color: var(--accent);
-      font-size: 20px; line-height: 1; top: 1px;
+      content: '·'; position: absolute; left: 3px; color: var(--accent); font-size: 20px; line-height: 1; top: 0px;
     }
-
-    .project-tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 20px; }
-    .tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+    .tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
     .project-footer { display: flex; justify-content: space-between; align-items: center; }
-
+    .read-more-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 600; color: var(--accent);
+      background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2);
+      padding: 7px 16px; border-radius: 999px; text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .read-more-btn:hover { background: rgba(74,222,128,.15); border-color: var(--accent); }
+    .arrow-link {
+      width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 15px; transition: border-color .2s, color .2s, background .2s;
+    }
+    .arrow-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(74,222,128,.06); }
     .play-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #000;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      padding: 9px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent); color: #000; font-family: 'Inter', sans-serif;
+      font-weight: 600; font-size: 12.5px; padding: 8px 18px; border-radius: 999px;
+      text-decoration: none; transition: background .2s, transform .15s;
     }
     .play-btn:hover { background: var(--accent2); transform: scale(1.04); }
 
-    .arrow-link {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 16px;
-      transition: border-color .2s, color .2s, background .2s;
-    }
-    .arrow-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(74,222,128,.06); }
-
-    /* ══════════════════════════════
-       ABOUT
-    ══════════════════════════════ */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    /* ── ABOUT ── */
+    .about-bio { color: var(--muted); font-size: 14px; line-height: 1.75; margin-bottom: 28px; max-width: 680px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
     .about-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px 24px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
     }
-    .about-card-icon { font-size: 26px; margin-bottom: 10px; }
-    .about-card h3 {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .about-card p { font-size: 13px; color: var(--muted); }
+    .about-card-icon { font-size: 22px; margin-bottom: 8px; }
+    .about-card h3 { font-family: 'Geist', sans-serif; font-size: 13.5px; font-weight: 700; margin-bottom: 6px; }
+    .about-card p { font-size: 12.5px; color: var(--muted); }
 
-    /* ══════════════════════════════
-       CONTACT
-    ══════════════════════════════ */
+    /* Experience timeline */
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: flex; gap: 20px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date { font-size: 11.5px; color: var(--muted); min-width: 110px; padding-top: 2px; }
+    .exp-date .current { color: var(--accent); font-weight: 600; }
+    .exp-body {}
+    .exp-role { font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+    .exp-company { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+    .exp-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── CONTACT ── */
     .contact-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
-    .contact-card h2 {
-      font-family: 'Geist', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.2;
-    }
+    .contact-card h2 { font-family: 'Geist', sans-serif; font-size: 30px; font-weight: 900; line-height: 1.2; }
     .contact-card h2 span { color: var(--accent); }
     .contact-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-
     .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 13px;
-      padding: 9px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: border-color .2s, background .2s;
+      display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--border);
+      color: var(--text); font-size: 12.5px; padding: 8px 16px; border-radius: 999px;
+      text-decoration: none; transition: border-color .2s, background .2s;
     }
     .btn-ghost:hover { border-color: var(--accent); background: rgba(74,222,128,.06); }
 
-    /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 24px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
     }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
+      width: 100%; max-width: 680px; max-height: 88vh; overflow-y: auto;
+      transform: translateY(20px); transition: transform .25s;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 28px 28px 0; gap: 16px;
+    }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border);
+      background: transparent; color: var(--muted); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: border-color .2s, color .2s;
+    }
+    .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+    .modal-body { padding: 20px 28px 28px; }
+    .modal-cover {
+      width: 100%; height: 200px; border-radius: 12px; overflow: hidden;
+      margin-bottom: 20px; border: 1px solid var(--border);
+      background: var(--bg3);
+    }
+    .modal-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-cover-placeholder {
+      width: 100%; height: 200px; border-radius: 12px; margin-bottom: 20px;
+      background: var(--bg3); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 64px;
+    }
+    .modal-section-title {
+      font-family: 'Geist', sans-serif; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+      margin: 20px 0 10px;
+    }
+    .modal-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .modal-bullets { list-style: none; margin-bottom: 16px; }
+    .modal-bullets li {
+      font-size: 13px; color: #bbb; padding: 3px 0 3px 15px; position: relative;
+    }
+    .modal-bullets li::before {
+      content: '·'; position: absolute; left: 3px; color: var(--accent); font-size: 20px; line-height: 1;
+    }
+    .modal-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid var(--border); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 12px; color: var(--muted); }
     footer a { color: var(--accent); text-decoration: none; }
 
-    /* ══════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════ */
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero                          { animation: fadeUp .5s ease both; }
-    .stats-row                     { animation: fadeUp .5s .1s ease both; }
-    .project-card                  { animation: fadeUp .5s ease both; }
-    .project-card:nth-child(2)     { animation-delay: .1s; }
+    .hero      { animation: fadeUp .5s ease both; }
+    .stats-row { animation: fadeUp .5s .1s ease both; }
+    .project-card { animation: fadeUp .5s ease both; }
+    .project-card:nth-child(2) { animation-delay: .08s; }
+    .project-card:nth-child(3) { animation-delay: .14s; }
 
-    /* ══════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════ */
-    @media (max-width: 600px) {
-      .hero { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .hero-photo { width: 100%; height: 180px; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 620px) {
+      .hero { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hero-photo { width: 100%; height: 200px; }
       nav { padding: 0 16px; }
       .nav-links { display: none; }
       .about-grid { grid-template-columns: 1fr; }
-      .contact-card { flex-direction: column; text-align: center; }
-      .contact-actions { align-items: center; }
-      .contact-card { padding: 28px 24px; }
+      .contact-card { flex-direction: column; padding: 28px 24px; }
+      .contact-actions { align-items: flex-start; }
+      .modal { max-height: 95vh; }
+      .exp-item { flex-direction: column; gap: 4px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══ -->
-  <nav>
-    <a href="#" class="nav-brand">
-      <div class="nav-brand-icon">
-        <!-- <img src="assets/avatar.jpg" alt="Avatar"> -->
-        🎮
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <a href="#intro" class="nav-brand">
+    <div class="nav-brand-icon">
+      <img src="assets/avatar.jpg" alt="Umberto Picariello" onerror="this.parentElement.innerHTML='🎮'">
+    </div>
+    <span class="nav-brand-name">Umberto Picariello</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#intro" class="active">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-nav">Let's Talk</a>
+</nav>
+
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <section id="intro">
+    <div class="hero">
+      <div class="hero-photo">
+        <img src="assets/avatar.jpg" alt="Umberto Picariello" onerror="this.style.display='none'">
       </div>
-      <span class="nav-brand-name">Il Mio Game Hub</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#intro" class="active">Home</a></li>
-      <li><a href="#giochi">Giochi</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contatti</a></li>
-    </ul>
-    <a href="#contact" class="btn-nav">Contattami</a>
-  </nav>
-
-  <div class="page">
-
-    <!-- HERO -->
-    <section id="intro">
-      <div class="hero">
-        <div class="hero-photo">
-          <!-- <img src="assets/avatar.jpg" alt="Avatar"> -->
-          🎮
-        </div>
-        <div class="hero-text">
-          <div class="hero-role">JS Game Developer</div>
-          <h1>Ciao! Sono<br><span>un Game Dev.</span></h1>
-          <p>
-            Costruisco giochi interattivi con JavaScript vanilla,
-            esplorando logica, animazione e game design.
-            Ogni progetto è giocabile nel browser.
-          </p>
-          <div class="hero-social">
-            <a href="https://github.com/TUO_USERNAME" target="_blank" class="social-btn" title="GitHub">🐙</a>
-            <a href="/cdn-cgi/l/email-protection#780c0d19381d15191114561b1715" class="social-btn" title="Email">✉️</a>
-            <a href="#" class="social-btn" title="itch.io">🎲</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-box"><div class="num">2</div><div class="lbl">Giochi</div></div>
-        <div class="stat-box"><div class="num">JS</div><div class="lbl">Stack</div></div>
-        <div class="stat-box"><div class="num">∞</div><div class="lbl">Fun</div></div>
-      </div>
-      <div class="tech-row">
-        <span class="tech-pill">HTML5</span>
-        <span class="tech-pill">CSS3</span>
-        <span class="tech-pill">JavaScript</span>
-        <span class="tech-pill">Canvas API</span>
-        <span class="tech-pill">GitHub Pages</span>
-      </div>
-    </section>
-
-    <!-- GIOCHI -->
-    <section id="giochi">
-      <div class="section-label">Giochi</div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon">🔢</div>
-          <div>
-            <div class="project-meta-top">Puzzle · Solo Project · Vanilla JS</div>
-            <div class="project-title">2048</div>
-          </div>
-        </div>
-        <p class="project-desc">
-          Unisci le tessere con lo stesso numero per raggiungere il 2048.
-          Un puzzle matematico che mette alla prova strategia e pensiero anticipatorio.
+      <div class="hero-text">
+        <div class="hero-role">Technical Game Designer</div>
+        <h1>Hi, I'm<br><span>Umberto.</span></h1>
+        <p>
+          Technical Game Designer with a MSc in Computer Science and professional
+          training in Game Design. I prototype, document, and ship games with a
+          strong technical focus — currently working on console portings at Untold Games.
         </p>
-        <ul class="project-bullets">
-          <li>Logica di merge e gestione della griglia 4×4</li>
-          <li>Animazioni fluide con CSS transitions</li>
-          <li>Supporto tastiera e swipe mobile</li>
-          <li>High score salvato in localStorage</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Puzzle</span>
-          <span class="tag">Keyboard</span>
-          <span class="tag">Mobile</span>
-          <span class="tag">High Score</span>
-        </div>
-        <div class="project-footer">
-          <a href="games/2048/index.html" class="play-btn">▶ Gioca Ora</a>
-          <a href="games/2048/index.html" class="arrow-link">→</a>
+        <div class="hero-social">
+          <a href="https://www.linkedin.com/in/umberto-picariello-7b43361a2/" target="_blank" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/pikumb94" target="_blank" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://pikumb.itch.io/" target="_blank" class="social-btn">🎲 itch.io</a>
+          <a href="mailto:umbertopicariello94@gmail.com" class="social-btn">✉️ Email</a>
         </div>
       </div>
+    </div>
 
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon">🐍</div>
-          <div>
-            <div class="project-meta-top">Arcade · Solo Project · Canvas API</div>
-            <div class="project-title">Snake</div>
-          </div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="num">9+</div><div class="lbl">Projects</div></div>
+      <div class="stat-box"><div class="num">5+</div><div class="lbl">Years Exp.</div></div>
+      <div class="stat-box"><div class="num">3</div><div class="lbl">Game Engines</div></div>
+      <div class="stat-box"><div class="num">1</div><div class="lbl">IEEE Paper</div></div>
+    </div>
+    <div class="tech-row">
+      <span class="tech-pill">Unreal Engine 5</span>
+      <span class="tech-pill">Unity</span>
+      <span class="tech-pill">Godot</span>
+      <span class="tech-pill">C++ / C#</span>
+      <span class="tech-pill">Systems Design</span>
+      <span class="tech-pill">Optimization</span>
+      <span class="tech-pill">Console Porting</span>
+      <span class="tech-pill">AI Design</span>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects">
+
+    <!-- PROFESSIONAL -->
+    <div class="section-label">Professional Projects</div>
+
+    <!-- High on Life 2 -->
+    <div class="project-card" onclick="openModal('hol2')">
+      <div class="project-header">
+        <div class="project-thumb">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg"
+               alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
-        <p class="project-desc">
-          Il classico gioco del serpente reinterpretato in JavaScript puro con Canvas API.
-          Guida il serpente, mangia il cibo, evita le pareti e te stesso.
-        </p>
-        <ul class="project-bullets">
-          <li>Rendering con HTML5 Canvas</li>
-          <li>Game loop a velocità progressiva</li>
-          <li>Controlli frecce + WASD</li>
-          <li>Schermata game over e restart</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Arcade</span>
-          <span class="tag">Canvas</span>
-          <span class="tag">Classico</span>
-        </div>
-        <div class="project-footer">
-          <a href="games/snake/index.html" class="play-btn">▶ Gioca Ora</a>
-          <a href="games/snake/index.html" class="arrow-link">→</a>
+        <div>
+          <div class="project-meta-top">Untold Games · 2024–Ongoing · Unreal Engine 5 · Nintendo Switch 2</div>
+          <div class="project-title">High on Life 2</div>
+          <div class="project-subtitle">Console Porting — Co-development</div>
         </div>
       </div>
+      <p class="project-desc">
+        Co-development porting of the sequel to Squanch Games' flagship title for Nintendo Switch 2.
+        Focus on stability, performance and bug resolution in close collaboration with QA.
+      </p>
+      <div class="project-tags">
+        <span class="tag">UE5</span><span class="tag">Switch 2</span><span class="tag">Co-Dev</span>
+        <span class="tag">Optimization</span><span class="tag">Bug Fixing</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
 
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-label">About</div>
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="about-card-icon">⚡</div>
-          <h3>JavaScript Vanilla</h3>
-          <p>Nessun framework, nessuna dipendenza. Solo HTML, CSS e JS puro per capire fino in fondo come funzionano le cose.</p>
+    <!-- High on Life 1 -->
+    <div class="project-card" onclick="openModal('hol1')">
+      <div class="project-header">
+        <div class="project-thumb">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg"
+               alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
-        <div class="about-card">
-          <div class="about-card-icon">🎮</div>
-          <h3>Game Design</h3>
-          <p>Ogni gioco esplora meccaniche diverse: puzzle logic, arcade movement, feedback visivo e gestione del punteggio.</p>
-        </div>
-        <div class="about-card">
-          <div class="about-card-icon">🐙</div>
-          <h3>Open Source</h3>
-          <p>Tutto il codice è pubblico su GitHub. Puoi leggerlo, forkarlo e imparare da ogni progetto liberamente.</p>
-        </div>
-        <div class="about-card">
-          <div class="about-card-icon">🌐</div>
-          <h3>GitHub Pages</h3>
-          <p>Deploy gratuito e immediato. Zero server, zero costi — accessibile da qualsiasi browser, ovunque.</p>
+        <div>
+          <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch / Switch 2</div>
+          <div class="project-title">High on Life</div>
+          <div class="project-subtitle">Console Porting — Switch & Switch 2</div>
         </div>
       </div>
-    </section>
+      <p class="project-desc">
+        Full porting of Squanch Games' award-winning FPS comedy game to Nintendo Switch and Switch 2.
+        Extensive CPU profiling, optimization and platform-specific bug fixing across both hardware targets.
+      </p>
+      <div class="project-tags">
+        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Switch 2</span>
+        <span class="tag">CPU Optimization</span><span class="tag">Unreal Insights</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-label">Contatti</div>
-      <div class="contact-card">
-        <h2>Reach out<br><span>to me!</span></h2>
-        <div class="contact-actions">
-          <a href="/cdn-cgi/l/email-protection#0276776342676f636b6e2c616d6f" class="play-btn">✉️ Scrivimi</a>
-          <a href="https://github.com/TUO_USERNAME/portfolio" target="_blank" class="btn-ghost">🐙 GitHub ↗</a>
+    <!-- Police Simulator -->
+    <div class="project-card" onclick="openModal('police')">
+      <div class="project-header">
+        <div class="project-thumb">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1436590/capsule_616x353.jpg"
+               alt="Police Simulator" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🚔'">
+        </div>
+        <div>
+          <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch</div>
+          <div class="project-title">Police Simulator: Patrol Officers</div>
+          <div class="project-subtitle">Console Porting — Switch</div>
         </div>
       </div>
-    </section>
+      <p class="project-desc">
+        Porting of Aesir Interactive's open-world police simulation game to Nintendo Switch.
+        Bug fixing, performance work and a dedicated UI Design Document for Switch adaptation.
+      </p>
+      <div class="project-tags">
+        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Bug Fixing</span>
+        <span class="tag">UI Design</span><span class="tag">Competitor Analysis</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
 
+    <!-- ACADEMIC -->
+    <div class="section-label" style="margin-top:48px;">Academic Projects</div>
+
+    <!-- Hindering -->
+    <div class="project-card" onclick="openModal('hindering')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">⏱️</div>
+        <div>
+          <div class="project-meta-top">Politecnico di Milano · 2019–2020 · Unity · Team of 5</div>
+          <div class="project-title">Hindering</div>
+          <div class="project-subtitle">3D Time-Manipulation Puzzle Platformer</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        A side-scrolling puzzle platformer where you wake up as a mysterious child who can stop time.
+        When time stops you move freely; when it flows, you channel forces to solve tests hidden in a lab facility.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Team Leader</span>
+        <span class="tag">Level Design</span><span class="tag">Windows / Linux</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://polimi-game-collective.itch.io/hindering" target="_blank" class="play-btn" onclick="event.stopPropagation()">▶ Play on itch.io</a>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+    <!-- Collaborative Maze -->
+    <div class="project-card" onclick="openModal('maze')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">🧠</div>
+        <div>
+          <div class="project-meta-top">AnotheReality · 2019–2020 · Unreal Engine 4 · IEEE Published</div>
+          <div class="project-title">CollaborativeMaze</div>
+          <div class="project-subtitle">VR Co-op Game + AI Procedural Content Generation Tool</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        Final thesis project in collaboration with startup AnotheReality. Designed a VR collaborative
+        game for team-building and built a procedural tool to generate and test instances of desired
+        difficulty using AI agents. Published in IEEE scientific journal.
+      </p>
+      <div class="project-tags">
+        <span class="tag">VR</span><span class="tag">UE4</span><span class="tag">AI / PCG</span>
+        <span class="tag">IEEE Published</span><span class="tag">Python</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://ieeexplore.ieee.org/document/9308431" target="_blank" class="play-btn" onclick="event.stopPropagation()">📄 IEEE Paper</a>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+    <!-- Paper Arrow -->
+    <div class="project-card" onclick="openModal('paperarrow')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">🏹</div>
+        <div>
+          <div class="project-meta-top">Digital Bros Game Academy · 2022 · Unity · Team of 4 · Android</div>
+          <div class="project-title">Paper Arrow</div>
+          <div class="project-subtitle">3D Hyper-casual Mobile Action</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        Move your arrow through levels in a clean Japanese setting. Face increasing difficulty,
+        defeat bosses and avoid civilians. Pierce only ninjas to score and unlock new skins.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span>
+        <span class="tag">Hyper-casual</span><span class="tag">Scrum</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="section-label" style="margin-top:48px;">Personal Projects</div>
+
+    <!-- Game Jams -->
+    <div class="project-card" onclick="openModal('jams')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">🕹️</div>
+        <div>
+          <div class="project-meta-top">2020–Ongoing · Various Engines · itch.io</div>
+          <div class="project-title">Game Jams</div>
+          <div class="project-subtitle">Project Manager, Game Designer & Programmer</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        A collection of games developed for various international jams and internal jam events at Untold Games.
+        Key role in brainstorming, task management and hands-on development across all entries.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Unity</span><span class="tag">Godot</span><span class="tag">Game Design</span>
+        <span class="tag">Programming</span><span class="tag">Rapid Prototyping</span>
+      </div>
+      <div class="project-footer">
+        <a href="https://pikumb.itch.io/" target="_blank" class="play-btn" onclick="event.stopPropagation()">🎲 All Games on itch.io</a>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+    <!-- Neuroevolution -->
+    <div class="project-card" onclick="openModal('neuro')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">🧬</div>
+        <div>
+          <div class="project-meta-top">Personal · 2020 · Unreal Engine 4 · Python / TensorFlow</div>
+          <div class="project-title">Neuroevolution Driving</div>
+          <div class="project-subtitle">AI Self-driving Car via Neural Networks</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        A neural network trained with neuroevolutionary techniques to drive a vehicle around a track
+        without crashing. Built on UE4's VehicleAdvanced template with TensorFlow integration via plugin.
+      </p>
+      <div class="project-tags">
+        <span class="tag">UE4</span><span class="tag">Neural Networks</span><span class="tag">TensorFlow</span>
+        <span class="tag">Python</span><span class="tag">Neuroevolution</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+    <!-- DailyLife Simulator -->
+    <div class="project-card" onclick="openModal('dailylife')">
+      <div class="project-header">
+        <div class="project-thumb-placeholder">🏠</div>
+        <div>
+          <div class="project-meta-top">Personal · 2020 · Unreal Engine 4</div>
+          <div class="project-title">DailyLife Simulator</div>
+          <div class="project-subtitle">NPC AI with Behaviour Trees & EQS</div>
+        </div>
+      </div>
+      <p class="project-desc">
+        A personal deep-dive into Unreal's Behaviour Trees and Environment Query System.
+        NPCs perform a realistic daily routine including solo and cooperative activities,
+        then autonomously go to sleep at night.
+      </p>
+      <div class="project-tags">
+        <span class="tag">UE4</span><span class="tag">Behaviour Trees</span><span class="tag">EQS</span>
+        <span class="tag">NPC AI</span><span class="tag">Blueprints</span>
+      </div>
+      <div class="project-footer">
+        <span class="read-more-btn">Read More ↗</span>
+        <span class="arrow-link">→</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="section-label">About Me</div>
+    <p class="about-bio">
+      I am a Technical Game Designer with a strong technical background stemming from a Master's Degree
+      in Computer Science (110/110 with Honours, Politecnico di Milano) and professional training at
+      Digital Bros Game Academy. I can effectively prototype, test, document, and design new game
+      mechanics and systems. I am an enthusiastic team player with a proven track record of leading
+      and contributing to videogame projects. Naturally open-minded, focused, and always eager to learn.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-icon">⚙️</div>
+        <h3>Systems & Technical Design</h3>
+        <p>Prototyping mechanics, writing GDD/LDD, balancing systems and managing game economies with a hands-on technical approach.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🚀</div>
+        <h3>Console Optimization & Porting</h3>
+        <p>CPU profiling with Unreal Insights and Nintendo SDK tools, fixing platform-specific bugs, managing QA pipelines via Jira.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🧠</div>
+        <h3>AI Design & Programming</h3>
+        <p>NPC Behaviour Trees, EQS, Procedural Content Generation and Machine Learning applied to game experiences.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🎓</div>
+        <h3>Education</h3>
+        <p>MSc Computer Science — Politecnico di Milano (GPA 4.0, 2020) · Game Design — Digital Bros Game Academy (2023)</p>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:40px;">Experience</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">02/2024<br><span class="current">Ongoing</span></div>
+        <div class="exp-body">
+          <div class="exp-role">Unreal Engine 5 Videogame Developer</div>
+          <div class="exp-company">Untold Games — Genoa</div>
+          <div class="exp-desc">Console porting for Nintendo, Microsoft and Sony platforms. CPU optimization (physics, AI, animations), critical bug fixing via Jira, performance analysis with Unreal Insights and Nintendo SDK tools.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">11/2020<br>11/2022</div>
+        <div class="exp-body">
+          <div class="exp-role">VR/AR Unreal Engine 4 Developer</div>
+          <div class="exp-company">ACCA Software — Avellino</div>
+          <div class="exp-desc">Real-time streaming renderings via Pixel Streaming and Node.js. Procedural mesh generation using geographic public data. Designed and implemented diverse VR and AR features.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">05/2019<br>07/2020</div>
+        <div class="exp-body">
+          <div class="exp-role">Junior Game Designer and Programmer</div>
+          <div class="exp-company">AnotheReality — Milan</div>
+          <div class="exp-desc">Designed a VR experience for team-building and built an in-house tool to generate and test game instances using AI. Work published on IEEE scientific journal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-card">
+      <h2>Reach out<br><span>to me!</span></h2>
+      <div class="contact-actions">
+        <a href="mailto:umbertopicariello94@gmail.com" class="play-btn">✉️ Send Email</a>
+        <a href="https://www.linkedin.com/in/umberto-picariello-7b43361a2/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+        <a href="https://github.com/pikumb94" target="_blank" class="btn-ghost">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Umberto Picariello — <a href="https://github.com/pikumb94/portfolio">GitHub Pages</a></p>
+</footer>
+
+<!-- ══ MODALS ══ -->
+
+<!-- HOL2 -->
+<div class="modal-overlay" id="modal-hol2" onclick="closeModal(event,'hol2')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Untold Games · 2024–Ongoing · Co-development</div>
+        <div class="project-title">High on Life 2</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('hol2')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg" alt="High on Life">
+      </div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">Co-development porting of the sequel to Squanch Games' flagship title for Nintendo Switch 2. The project involves close collaboration with the original developer in a co-dev setup, tackling both stability and performance issues as they arise during development.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>Performance profiling using Unreal Insights to identify CPU bottlenecks (physics, AI, animations)</li>
+        <li>Bug resolution in collaboration with QA team tracked through Jira</li>
+        <li>Use of Nintendo Switch 2 remote SDK tools and console CVars for targeted debugging</li>
+        <li>Platform code review and Unreal Engine platform layer analysis</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">UE5</span><span class="tag">Switch 2</span><span class="tag">Co-Dev</span>
+        <span class="tag">Unreal Insights</span><span class="tag">Jira</span><span class="tag">Nintendo SDK</span>
+      </div>
+    </div>
   </div>
+</div>
 
-  <footer>
-    <p>© 2026 — Creato con ❤️ su <a href="https://github.com/TU
+<!-- HOL1 -->
+<div class="modal-overlay" id="modal-hol1" onclick="closeModal(event,'hol1')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Untold Games · 2024 · Nintendo Switch / Switch 2</div>
+        <div class="project-title">High on Life</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('hol1')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg" alt="High on Life">
+      </div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">Full porting of Squanch Games' award-winning FPS comedy adventure to Nintendo Switch and Nintendo Switch 2. The project required deep profiling sessions to identify what was preventing stable frame rates on both hardware targets, followed by targeted CPU-side optimizations and extensive platform-specific bug fixing.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>CPU profiling with Unreal Insights and Nintendo SDK tools to identify FPS bottlenecks</li>
+        <li>Optimized physics, AI and animation systems to meet target FPS on Switch hardware</li>
+        <li>Trimmed CPU time budget across multiple game systems to unlock headroom for stable framerate</li>
+        <li>Extensive console bug fixing for both Switch 1 and Switch 2 targets</li>
+        <li>Reviewed platform-specific Unreal Engine code and used Nintendo remote console tools and CVars</li>
+        <li>QA pipeline management via Jira for bug tracking and resolution</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Switch 2</span>
+        <span class="tag">CPU Optimization</span><span class="tag">Unreal Insights</span><span class="tag">Jira</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POLICE -->
+<div class="modal-overlay" id="modal-police" onclick="closeModal(event,'police')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Untold Games · 2024 · Nintendo Switch</div>
+        <div class="project-title">Police Simulator: Patrol Officers</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('police')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1436590/capsule_616x353.jpg" alt="Police Simulator">
+      </div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">Porting of Aesir Interactive's open-world police simulation game to Nintendo Switch. In addition to standard porting tasks, this project involved a dedicated UI design effort to properly adapt the game interface to the Switch form factor and playstyle.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>Platform bug fixing and QA pipeline management via Jira</li>
+        <li>Authored a UI Design Document specifically for the Switch adaptation</li>
+        <li>Conducted competitor analysis of similar titles on Switch to inform UI decisions</li>
+        <li>Performance profiling and CPU optimization using Unreal Insights and Nintendo SDK tools</li>
+        <li>Remote console debugging via Nintendo tools and targeted CVar testing</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">UI Design</span>
+        <span class="tag">Bug Fixing</span><span class="tag">Competitor Analysis</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HINDERING -->
+<div class="modal-overlay" id="modal-hindering" onclick="closeModal(event,'hindering')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Politecnico di Milano · 2019–2020 · Unity · Team of 5</div>
+        <div class="project-title">Hindering</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('hindering')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">⏱️</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">A 3D side-scrolling puzzle platformer developed during the "Videogame Design and Programming" course at Politecnico di Milano. My own pitch was ranked among the top proposals and selected for development. You wake up as a child who can manipulate time — when time stops you can move freely, when it flows you can channel forces onto objects to solve tests, uncovering the secrets of a mysterious laboratory.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>Ideated, pitched and documented the game throughout all production phases</li>
+        <li>Team Leader: managed morale, scheduled activities and assigned weekly tasks</li>
+        <li>Designed puzzles on paper, drafted blockouts and built all levels (prologue, tutorial, 3 stages)</li>
+        <li>Implemented camera, character movement, force mechanic, post-process and cutscenes in C#</li>
+        <li>Balanced game progression providing a proper learning curve</li>
+        <li>Guided artist with guidelines and references; used environmental storytelling and music for tone</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Team Leader</span>
+        <span class="tag">Level Design</span><span class="tag">Windows / Linux</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://polimi-game-collective.itch.io/hindering" target="_blank" class="play-btn">▶ Play on itch.io</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAZE -->
+<div class="modal-overlay" id="modal-maze" onclick="closeModal(event,'maze')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">AnotheReality · 2019–2020 · UE4 · IEEE Published</div>
+        <div class="project-title">CollaborativeMaze</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('maze')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">🧠</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">Final thesis project developed in collaboration with startup AnotheReality. I designed a VR collaborative game for corporate team-building activities and built a tool that procedurally generates game instances of desired difficulty. Difficulty is measured by AI agents with different human-like behaviours (prudent, aggressive, smart) that simulate gameplay and produce intensity diagrams. Published in IEEE scientific journal.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>Designed the VR collaborative game experience and its team-building mechanics</li>
+        <li>Developed the procedural content generation tool for difficulty-controlled maze instances</li>
+        <li>Implemented AI agents with human-like behaviour profiles to simulate and measure difficulty</li>
+        <li>Wrote an extensive thesis on PCG history, usages in media, and maze/map generation algorithms</li>
+        <li>Research published in IEEE scientific journal</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">VR</span><span class="tag">UE4</span><span class="tag">PCG</span>
+        <span class="tag">AI Agents</span><span class="tag">IEEE</span><span class="tag">Python</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://ieeexplore.ieee.org/document/9308431" target="_blank" class="play-btn">📄 Read IEEE Paper</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAPER ARROW -->
+<div class="modal-overlay" id="modal-paperarrow" onclick="closeModal(event,'paperarrow')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Digital Bros Game Academy · 2022 · Unity · Team of 4</div>
+        <div class="project-title">Paper Arrow</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('paperarrow')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">🏹</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">A 3D hyper-casual mobile action game developed during the Game Design course at Digital Bros Game Academy. Guide your arrow through clean Japanese-themed levels, dodge civilians, defeat bosses and pierce only ninjas to score points and unlock new skins. Developed using Scrum methodology with Trello.</p>
+      <div class="modal-section-title">My Contributions</div>
+      <ul class="modal-bullets">
+        <li>Brainstormed and wrote the game pitch with the team</li>
+        <li>Designed and balanced the enemy ninjas and the final boss fight</li>
+        <li>Designed the tutorial level focusing on a clear first-user experience</li>
+        <li>Implemented enemy and boss behaviours and animations in C# (Unity)</li>
+        <li>Conducted a Hypercasual Competitor Analysis for the pre-production phase</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span>
+        <span class="tag">Scrum</span><span class="tag">Hyper-casual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAME JAMS -->
+<div class="modal-overlay" id="modal-jams" onclick="closeModal(event,'jams')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">2020–Ongoing · Various Engines</div>
+        <div class="project-title">Game Jams</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('jams')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">🕹️</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">A growing collection of games created for international game jams and internal jam events organized at Untold Games. Each jam is an opportunity to rapidly prototype and explore new mechanics, genres and engines under tight time constraints.</p>
+      <div class="modal-section-title">Role & Contributions</div>
+      <ul class="modal-bullets">
+        <li>Point of reference for internal jam organization at Untold Games</li>
+        <li>Key role in brainstorming and ideation at the start of each jam</li>
+        <li>Project Manager: task assignment and timeline management throughout development</li>
+        <li>Game Designer and Programmer across all entries</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">Unity</span><span class="tag">Godot</span><span class="tag">Game Design</span>
+        <span class="tag">Rapid Prototyping</span><span class="tag">Team Lead</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://pikumb.itch.io/" target="_blank" class="play-btn">🎲 View All on itch.io</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEUROEVOLUTION -->
+<div class="modal-overlay" id="modal-neuro" onclick="closeModal(event,'neuro')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Personal · 2020 · UE4 · Python / TensorFlow</div>
+        <div class="project-title">Neuroevolution Driving</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('neuro')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">🧬</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">A personal project combining Unreal Engine 4 and Neural Networks. Starting from UE4's VehicleAdvanced template and a TensorFlow plugin, I trained a neural network with neuroevolutionary techniques to drive a vehicle around a full track without crashing. Agents trained on complex tracks generalised correctly to unseen irregular tracks.</p>
+      <div class="modal-section-title">Technical Details</div>
+      <ul class="modal-bullets">
+        <li>UE4 VehicleAdvanced template as base environment</li>
+        <li>TensorFlow (Python) integrated via UE4 plugin</li>
+        <li>Neuroevolutionary training: population selection, mutation and fitness evaluation</li>
+        <li>Tested best models on unseen irregular tracks to validate generalisation</li>
+        <li>Compared models trained on simple vs complex tracks to analyse overfitting</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">UE4</span><span class="tag">Neural Networks</span>
+        <span class="tag">TensorFlow</span><span class="tag">Python</span><span class="tag">Neuroevolution</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAILYLIFE -->
+<div class="modal-overlay" id="modal-dailylife" onclick="closeModal(event,'dailylife')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="project-meta-top">Personal · 2020 · Unreal Engine 4</div>
+        <div class="project-title">DailyLife Simulator</div>
+      </div>
+      <button class="modal-close" onclick="closeModalById('dailylife')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cover-placeholder">🏠</div>
+      <div class="modal-section-title">Overview</div>
+      <p class="modal-desc">A personal project to master Unreal Engine's Behaviour Trees and Environment Query System (EQS). NPCs navigate a house and perform a realistic daily routine autonomously, choosing from a variety of solo and cooperative activities, then going to sleep at night.</p>
+      <div class="modal-section-title">Technical Details</div>
+      <ul class="modal-bullets">
+        <li>Behaviour Trees driving all NPC decision-making and activity scheduling</li>
+        <li>Environment Query System (EQS) for spatial awareness and activity location selection</li>
+        <li>Solo activities: Idle, Sitting, Reading, Smoking, Drinking Coffee, Playing on a console</li>
+        <li>Cooperative activities: Conversation, Ping Pong, Playing on a console together</li>
+        <li>Night cycle: NPCs stop all activities and autonomously go to sleep</li>
+      </ul>
+      <div class="modal-tags">
+        <span class="tag">UE4</span><span class="tag">Behaviour Trees</span>
+        <span class="tag">EQS</span><span class="tag">NPC AI</span><span class="tag">Blueprints</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModalById(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModal(e, id) {
+    if (e.target === e.currentTarget) closeModalById(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
