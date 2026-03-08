@@ -48,10 +48,12 @@
     }
     .nav-brand-icon img { width: 100%; height: 100%; object-fit: cover; }
     .nav-brand-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
-    .nav-links { display: flex; gap: 2px; list-style: none; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-links > li { display: flex; align-items: center; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: 13px;
       padding: 6px 11px; border-radius: 8px; transition: color .2s, background .2s;
+      display: flex; align-items: center;
     }
     .nav-links a:hover { color: var(--text); background: var(--bg3); }
     .nav-links a.active { color: var(--accent); }
@@ -139,35 +141,39 @@
     /* ── PROJECT CARDS ── */
     .project-card {
       background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px 28px; margin-bottom: 12px;
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 12px;
       cursor: pointer; transition: border-color .25s, transform .2s;
+      display: flex; flex-direction: column; gap: 14px;
     }
     .project-card:hover { border-color: #3d3d3d; transform: translateY(-2px); }
-    .project-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+    .project-card-top { display: flex; gap: 22px; align-items: flex-start; }
     .project-thumb {
-      width: 64px; height: 64px; border-radius: 10px; overflow: hidden;
+      width: 140px; height: 140px; border-radius: 10px; overflow: hidden;
       flex-shrink: 0; border: 1px solid var(--border); background: var(--bg3);
+      align-self: stretch;
     }
     .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .project-thumb-placeholder {
-      width: 64px; height: 64px; border-radius: 10px; flex-shrink: 0;
+      width: 140px; height: 140px; border-radius: 10px; flex-shrink: 0;
       border: 1px solid var(--border); background: var(--bg3);
-      display: flex; align-items: center; justify-content: center; font-size: 28px;
+      display: flex; align-items: center; justify-content: center; font-size: 48px;
+      align-self: stretch;
     }
-    .project-meta-top { font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: .04em; margin-bottom: 4px; }
+    .project-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-meta-top { font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: .04em; }
     .project-title { font-family: 'Geist', sans-serif; font-size: 19px; font-weight: 800; line-height: 1.2; }
-    .project-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
-    .project-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 14px; line-height: 1.65; }
-    .project-bullets { list-style: none; margin-bottom: 14px; }
+    .project-subtitle { font-size: 12.5px; color: var(--muted); }
+    .project-desc { color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+    .project-bullets { list-style: none; }
     .project-bullets li {
       font-size: 13px; color: #aaa; padding: 2px 0 2px 15px; position: relative;
     }
     .project-bullets li::before {
       content: '·'; position: absolute; left: 3px; color: var(--accent); font-size: 20px; line-height: 1; top: 0px;
     }
-    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
-    .project-footer { display: flex; justify-content: space-between; align-items: center; }
+    .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
     .read-more-btn {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 12.5px; font-weight: 600; color: var(--accent);
@@ -367,8 +373,7 @@
         <h1>Hi, I'm Umberto.</h1>
         <p>
           <span style="color:var(--accent); font-weight:600;">Technical Game Designer</span> with a MSc in Computer Science and professional
-          training in Game Design. I prototype, document, and ship games with a
-          strong technical focus — currently working on console portings at Untold Games.
+          training in Game Design. Fascinated with the game craft for its ways of surprising through discovery and fullfil our primal need for play — currently working on console portings at Untold Games.
         </p>
         <div class="hero-social">
           <a href="https://www.linkedin.com/in/umberto-picariello-7b43361a2/" target="_blank" class="social-btn">
@@ -406,17 +411,15 @@
 
     <!-- High on Life 2 -->
     <div class="project-card" onclick="openModal('hol2')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb">
           <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2069250/header.jpg"
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Untold Games · 2024–Ongoing · Unreal Engine 5 · Nintendo Switch 2</div>
           <div class="project-title">High on Life 2</div>
           <div class="project-subtitle">Console Porting — Co-development</div>
-        </div>
-      </div>
       <p class="project-desc">
         Co-development porting of the sequel to Squanch Games' flagship title for Nintendo Switch 2.
         Focus on stability, performance and bug resolution in close collaboration with QA.
@@ -425,6 +428,7 @@
         <span class="tag">UE5</span><span class="tag">Switch 2</span><span class="tag">Co-Dev</span>
         <span class="tag">Optimization</span><span class="tag">Bug Fixing</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
@@ -433,17 +437,15 @@
 
     <!-- High on Life 1 -->
     <div class="project-card" onclick="openModal('hol1')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb">
           <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1583230/header.jpg"
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch / Switch 2</div>
           <div class="project-title">High on Life</div>
           <div class="project-subtitle">Console Porting — Switch & Switch 2</div>
-        </div>
-      </div>
       <p class="project-desc">
         Full porting of Squanch Games' award-winning FPS comedy game to Nintendo Switch and Switch 2.
         Extensive CPU profiling, optimization and platform-specific bug fixing across both hardware targets.
@@ -452,6 +454,7 @@
         <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Switch 2</span>
         <span class="tag">CPU Optimization</span><span class="tag">Unreal Insights</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
@@ -460,17 +463,15 @@
 
     <!-- Police Simulator -->
     <div class="project-card" onclick="openModal('police')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb">
           <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/header.jpg"
                alt="Police Simulator" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🚔'">
         </div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch</div>
           <div class="project-title">Police Simulator: Patrol Officers</div>
           <div class="project-subtitle">Console Porting — Switch</div>
-        </div>
-      </div>
       <p class="project-desc">
         Porting of Aesir Interactive's open-world police simulation game to Nintendo Switch.
         Bug fixing, performance work and a dedicated UI Design Document for Switch adaptation.
@@ -479,6 +480,7 @@
         <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Bug Fixing</span>
         <span class="tag">UI Design</span><span class="tag">Competitor Analysis</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
@@ -490,14 +492,12 @@
 
     <!-- Hindering -->
     <div class="project-card" onclick="openModal('hindering')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">⏱️</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Politecnico di Milano · 2019–2020 · Unity · Team of 5</div>
           <div class="project-title">Hindering</div>
           <div class="project-subtitle">3D Time-Manipulation Puzzle Platformer</div>
-        </div>
-      </div>
       <p class="project-desc">
         A side-scrolling puzzle platformer where you wake up as a mysterious child who can stop time.
         When time stops you move freely; when it flows, you channel forces to solve tests hidden in a lab facility.
@@ -506,6 +506,7 @@
         <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Team Leader</span>
         <span class="tag">Level Design</span><span class="tag">Windows / Linux</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <a href="https://polimi-game-collective.itch.io/hindering" target="_blank" class="play-btn" onclick="event.stopPropagation()">▶ Play on itch.io</a>
         <span class="arrow-link">→</span>
@@ -514,14 +515,12 @@
 
     <!-- Collaborative Maze -->
     <div class="project-card" onclick="openModal('maze')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">🧠</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">AnotheReality · 2019–2020 · Unreal Engine 4 · IEEE Published</div>
           <div class="project-title">CollaborativeMaze</div>
           <div class="project-subtitle">VR Co-op Game + AI Procedural Content Generation Tool</div>
-        </div>
-      </div>
       <p class="project-desc">
         Final thesis project in collaboration with startup AnotheReality. Designed a VR collaborative
         game for team-building and built a procedural tool to generate and test instances of desired
@@ -531,6 +530,7 @@
         <span class="tag">VR</span><span class="tag">UE4</span><span class="tag">AI / PCG</span>
         <span class="tag">IEEE Published</span><span class="tag">Python</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <a href="https://ieeexplore.ieee.org/document/9308431" target="_blank" class="play-btn" onclick="event.stopPropagation()">📄 IEEE Paper</a>
         <span class="arrow-link">→</span>
@@ -539,14 +539,12 @@
 
     <!-- Paper Arrow -->
     <div class="project-card" onclick="openModal('paperarrow')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">🏹</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Digital Bros Game Academy · 2022 · Unity · Team of 4 · Android</div>
           <div class="project-title">Paper Arrow</div>
           <div class="project-subtitle">3D Hyper-casual Mobile Action</div>
-        </div>
-      </div>
       <p class="project-desc">
         Move your arrow through levels in a clean Japanese setting. Face increasing difficulty,
         defeat bosses and avoid civilians. Pierce only ninjas to score and unlock new skins.
@@ -555,6 +553,7 @@
         <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Android</span>
         <span class="tag">Hyper-casual</span><span class="tag">Scrum</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
@@ -566,14 +565,12 @@
 
     <!-- Game Jams -->
     <div class="project-card" onclick="openModal('jams')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">🕹️</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">2020–Ongoing · Various Engines · itch.io</div>
           <div class="project-title">Game Jams</div>
           <div class="project-subtitle">Project Manager, Game Designer & Programmer</div>
-        </div>
-      </div>
       <p class="project-desc">
         A collection of games developed for various international jams and internal jam events at Untold Games.
         Key role in brainstorming, task management and hands-on development across all entries.
@@ -582,6 +579,7 @@
         <span class="tag">Unity</span><span class="tag">Godot</span><span class="tag">Game Design</span>
         <span class="tag">Programming</span><span class="tag">Rapid Prototyping</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <a href="https://pikumb.itch.io/" target="_blank" class="play-btn" onclick="event.stopPropagation()">🎲 All Games on itch.io</a>
         <span class="arrow-link">→</span>
@@ -590,14 +588,12 @@
 
     <!-- Neuroevolution -->
     <div class="project-card" onclick="openModal('neuro')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">🧬</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Personal · 2020 · Unreal Engine 4 · Python / TensorFlow</div>
           <div class="project-title">Neuroevolution Driving</div>
           <div class="project-subtitle">AI Self-driving Car via Neural Networks</div>
-        </div>
-      </div>
       <p class="project-desc">
         A neural network trained with neuroevolutionary techniques to drive a vehicle around a track
         without crashing. Built on UE4's VehicleAdvanced template with TensorFlow integration via plugin.
@@ -606,6 +602,7 @@
         <span class="tag">UE4</span><span class="tag">Neural Networks</span><span class="tag">TensorFlow</span>
         <span class="tag">Python</span><span class="tag">Neuroevolution</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
@@ -614,14 +611,12 @@
 
     <!-- DailyLife Simulator -->
     <div class="project-card" onclick="openModal('dailylife')">
-      <div class="project-header">
+        <div class="project-card-top">
         <div class="project-thumb-placeholder">🏠</div>
-        <div>
+<div class="project-body">
           <div class="project-meta-top">Personal · 2020 · Unreal Engine 4</div>
           <div class="project-title">DailyLife Simulator</div>
           <div class="project-subtitle">NPC AI with Behaviour Trees & EQS</div>
-        </div>
-      </div>
       <p class="project-desc">
         A personal deep-dive into Unreal's Behaviour Trees and Environment Query System.
         NPCs perform a realistic daily routine including solo and cooperative activities,
@@ -631,6 +626,7 @@
         <span class="tag">UE4</span><span class="tag">Behaviour Trees</span><span class="tag">EQS</span>
         <span class="tag">NPC AI</span><span class="tag">Blueprints</span>
       </div>
+      </div></div>
       <div class="project-footer">
         <span class="read-more-btn">Read More ↗</span>
         <span class="arrow-link">→</span>
