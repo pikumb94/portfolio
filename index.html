@@ -55,6 +55,29 @@
     }
     .nav-links a:hover { color: var(--text); background: var(--bg3); }
     .nav-links a.active { color: var(--accent); }
+
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: .6; }
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 8px); left: 0;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 6px; min-width: 200px;
+      opacity: 0; pointer-events: none; transform: translateY(-6px);
+      transition: opacity .18s, transform .18s;
+      z-index: 300;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1; pointer-events: all; transform: translateY(0);
+    }
+    .dropdown-menu a {
+      display: block; padding: 8px 12px; border-radius: 7px;
+      color: var(--muted); font-size: 13px; text-decoration: none;
+      transition: background .15s, color .15s; white-space: nowrap;
+    }
+    .dropdown-menu a:hover { background: var(--bg3); color: var(--text); }
     .btn-nav {
       background: var(--accent); color: #000; font-family: 'Inter', sans-serif;
       font-weight: 600; font-size: 13px; padding: 8px 18px; border-radius: 999px;
@@ -72,7 +95,8 @@
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     /* ── HERO ── */
-    .hero { display: flex; align-items: center; gap: 40px; padding: 48px 0 16px; }
+    .hero { display: flex; align-items: flex-start; gap: 40px; padding: 48px 0 16px; }
+    .hero-stats-col { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; align-self: stretch; justify-content: center; }
     .hero-photo {
       width: 160px; height: 200px; border-radius: var(--radius);
       overflow: hidden; flex-shrink: 0; border: 1px solid var(--border);
@@ -99,18 +123,18 @@
     .social-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(74,222,128,.06); }
 
     /* Stats */
-    .stats-row { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
     .stat-box {
-      flex: 1; min-width: 90px; background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 16px 20px; text-align: center;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px; text-align: center; min-width: 86px;
     }
-    .stat-box .num { font-family: 'Geist', sans-serif; font-size: 26px; font-weight: 900; }
-    .stat-box .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 3px; }
-    .tech-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
+    .stat-box .num { font-family: 'Geist', sans-serif; font-size: 22px; font-weight: 900; }
+    .stat-box .lbl { font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; line-height: 1.5; }
+    .tech-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
     .tech-pill {
       font-size: 11.5px; padding: 4px 12px; border-radius: 999px;
       border: 1px solid var(--border); color: var(--muted); background: var(--bg2);
     }
+    .tech-pill-sep { border-color: var(--accent); color: var(--accent); background: rgba(74,222,128,.06); }
 
     /* ── PROJECT CARDS ── */
     .project-card {
@@ -190,6 +214,18 @@
     .exp-role { font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
     .exp-company { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
     .exp-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── CV CARD ── */
+    .cv-card {
+      margin-top: 28px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .cv-card-left { display: flex; align-items: center; gap: 16px; }
+    .cv-icon { font-size: 32px; }
+    .cv-title { font-family: 'Geist', sans-serif; font-weight: 700; font-size: 15px; }
+    .cv-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
     /* ── CONTACT ── */
     .contact-card {
@@ -273,7 +309,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .hero      { animation: fadeUp .5s ease both; }
-    .stats-row { animation: fadeUp .5s .1s ease both; }
+    .hero-stats-col { animation: fadeUp .5s .1s ease both; }
     .project-card { animation: fadeUp .5s ease both; }
     .project-card:nth-child(2) { animation-delay: .08s; }
     .project-card:nth-child(3) { animation-delay: .14s; }
@@ -281,6 +317,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 620px) {
       .hero { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hero-stats-col { flex-direction: row; width: 100%; }
       .hero-photo { width: 100%; height: 200px; }
       nav { padding: 0 16px; }
       .nav-links { display: none; }
@@ -304,11 +341,18 @@
   </a>
   <ul class="nav-links">
     <li><a href="#intro" class="active">Home</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li class="nav-dropdown">
+      <a href="#projects">Projects</a>
+      <div class="dropdown-menu">
+        <a href="#professional-projects">🏢 Professional Projects</a>
+        <a href="#academic-projects">🎓 Academic Projects</a>
+        <a href="#personal-projects">🧪 Personal Projects</a>
+      </div>
+    </li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="btn-nav">Let's Talk</a>
+  <a href="assets/resume.pdf" download class="btn-nav">⬇ Download CV</a>
 </nav>
 
 <div class="page">
@@ -320,10 +364,9 @@
         <img src="assets/avatar.jpg" alt="Umberto Picariello" onerror="this.style.display='none'">
       </div>
       <div class="hero-text">
-        <div class="hero-role">Technical Game Designer</div>
-        <h1>Hi, I'm<br><span>Umberto.</span></h1>
+        <h1>Hi, I'm Umberto.</h1>
         <p>
-          Technical Game Designer with a MSc in Computer Science and professional
+          <span style="color:var(--accent); font-weight:600;">Technical Game Designer</span> with a MSc in Computer Science and professional
           training in Game Design. I prototype, document, and ship games with a
           strong technical focus — currently working on console portings at Untold Games.
         </p>
@@ -340,23 +383,18 @@
           <a href="/cdn-cgi/l/email-protection#c5b0a8a7a0b7b1aab5aca6a4b7aca0a9a9aafcf185a2a8a4aca9eba6aaa8" class="social-btn">✉️ Email</a>
         </div>
       </div>
+      <div class="hero-stats-col">
+        <div class="stat-box"><div class="num">10+</div><div class="lbl">Game<br>Projects</div></div>
+        <div class="stat-box"><div class="num">5+</div><div class="lbl">Years of<br>Game Dev.</div></div>
+      </div>
     </div>
 
-    <div class="stats-row">
-      <div class="stat-box"><div class="num">9+</div><div class="lbl">Projects</div></div>
-      <div class="stat-box"><div class="num">5+</div><div class="lbl">Years Exp.</div></div>
-      <div class="stat-box"><div class="num">3</div><div class="lbl">Game Engines</div></div>
-      <div class="stat-box"><div class="num">1</div><div class="lbl">IEEE Paper</div></div>
-    </div>
     <div class="tech-row">
-      <span class="tech-pill">Unreal Engine 5</span>
-      <span class="tech-pill">Unity</span>
-      <span class="tech-pill">Godot</span>
-      <span class="tech-pill">C++ / C#</span>
-      <span class="tech-pill">Systems Design</span>
-      <span class="tech-pill">Optimization</span>
-      <span class="tech-pill">Console Porting</span>
-      <span class="tech-pill">AI Design</span>
+      <span class="tech-pill tech-pill-sep">Unreal Engine 5 | Unity | Godot</span>
+      <span class="tech-pill tech-pill-sep">C++ / Blueprints | C# | GDScript</span>
+      <span class="tech-pill tech-pill-sep">Systems Design</span>
+      <span class="tech-pill tech-pill-sep">Prototyping</span>
+      <span class="tech-pill tech-pill-sep">Optimization</span>
     </div>
   </section>
 
@@ -364,13 +402,13 @@
   <section id="projects">
 
     <!-- PROFESSIONAL -->
-    <div class="section-label">Professional Projects</div>
+    <div class="section-label" id="professional-projects">Professional Projects</div>
 
     <!-- High on Life 2 -->
     <div class="project-card" onclick="openModal('hol2')">
       <div class="project-header">
         <div class="project-thumb">
-          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg"
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2069250/header.jpg"
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
         <div>
@@ -397,7 +435,7 @@
     <div class="project-card" onclick="openModal('hol1')">
       <div class="project-header">
         <div class="project-thumb">
-          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg"
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1583230/header.jpg"
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
         <div>
@@ -424,7 +462,7 @@
     <div class="project-card" onclick="openModal('police')">
       <div class="project-header">
         <div class="project-thumb">
-          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1436590/capsule_616x353.jpg"
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/header.jpg"
                alt="Police Simulator" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🚔'">
         </div>
         <div>
@@ -448,7 +486,7 @@
     </div>
 
     <!-- ACADEMIC -->
-    <div class="section-label" style="margin-top:48px;">Academic Projects</div>
+    <div class="section-label" id="academic-projects" style="margin-top:48px;">Academic Projects</div>
 
     <!-- Hindering -->
     <div class="project-card" onclick="openModal('hindering')">
@@ -524,7 +562,7 @@
     </div>
 
     <!-- PERSONAL -->
-    <div class="section-label" style="margin-top:48px;">Personal Projects</div>
+    <div class="section-label" id="personal-projects" style="margin-top:48px;">Personal Projects</div>
 
     <!-- Game Jams -->
     <div class="project-card" onclick="openModal('jams')">
@@ -662,6 +700,18 @@
         </div>
       </div>
     </div>
+
+    <!-- CV Download -->
+    <div class="cv-card">
+      <div class="cv-card-left">
+        <div class="cv-icon">📄</div>
+        <div>
+          <div class="cv-title">Resume / CV</div>
+          <div class="cv-sub">Umberto Picariello — Technical Game Designer</div>
+        </div>
+      </div>
+      <a href="assets/resume.pdf" download class="play-btn">⬇ Download PDF</a>
+    </div>
   </section>
 
   <!-- ══ CONTACT ══ -->
@@ -670,7 +720,7 @@
     <div class="contact-card">
       <h2>Reach out<br><span>to me!</span></h2>
       <div class="contact-actions">
-        <a href="/cdn-cgi/l/email-protection#63160e010611170c130a0002110a060f0f0c5a5723040e020a0f4d000c0e" class="play-btn">✉️ Send Email</a>
+        <a href="/cdn-cgi/l/email-protection#c0b5ada2a5b2b4afb0a9a3a1b2a9a5acacaff9f480a7ada1a9aceea3afad" class="play-btn">✉️ Send Email</a>
         <a href="https://www.linkedin.com/in/umberto-picariello-7b43361a2/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
         <a href="https://github.com/pikumb94" target="_blank" class="btn-ghost">GitHub ↗</a>
       </div>
@@ -697,7 +747,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg" alt="High on Life">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2069250/capsule_616x353.jpg" alt="High on Life">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">Co-development porting of the sequel to Squanch Games' flagship title for Nintendo Switch 2. The project involves close collaboration with the original developer in a co-dev setup, tackling both stability and performance issues as they arise during development.</p>
@@ -711,6 +761,9 @@
       <div class="modal-tags">
         <span class="tag">UE5</span><span class="tag">Switch 2</span><span class="tag">Co-Dev</span>
         <span class="tag">Unreal Insights</span><span class="tag">Jira</span><span class="tag">Nintendo SDK</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://store.steampowered.com/app/2069250/High_On_Life_2/" target="_blank" class="btn-ghost">🎮 Steam Page ↗</a>
       </div>
     </div>
   </div>
@@ -728,7 +781,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1583100/capsule_616x353.jpg" alt="High on Life">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1583230/capsule_616x353.jpg" alt="High on Life">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">Full porting of Squanch Games' award-winning FPS comedy adventure to Nintendo Switch and Nintendo Switch 2. The project required deep profiling sessions to identify what was preventing stable frame rates on both hardware targets, followed by targeted CPU-side optimizations and extensive platform-specific bug fixing.</p>
@@ -744,6 +797,9 @@
       <div class="modal-tags">
         <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Switch 2</span>
         <span class="tag">CPU Optimization</span><span class="tag">Unreal Insights</span><span class="tag">Jira</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://store.steampowered.com/app/1583230/High_On_Life/" target="_blank" class="btn-ghost">🎮 Steam Page ↗</a>
       </div>
     </div>
   </div>
@@ -761,7 +817,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1436590/capsule_616x353.jpg" alt="Police Simulator">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/capsule_616x353.jpg" alt="Police Simulator">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">Porting of Aesir Interactive's open-world police simulation game to Nintendo Switch. In addition to standard porting tasks, this project involved a dedicated UI design effort to properly adapt the game interface to the Switch form factor and playstyle.</p>
@@ -776,6 +832,9 @@
       <div class="modal-tags">
         <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">UI Design</span>
         <span class="tag">Bug Fixing</span><span class="tag">Competitor Analysis</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://store.steampowered.com/app/997010/Police_Simulator_Patrol_Officers/" target="_blank" class="btn-ghost">🎮 Steam Page ↗</a>
       </div>
     </div>
   </div>
@@ -970,7 +1029,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -997,12 +1056,4 @@
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
-    navLinks.forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
-    });
-  });
-</script>
-
-</body>
-</html>
+    navLinks.forEach(a =
