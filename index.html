@@ -63,12 +63,17 @@
     .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
     .nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: .6; }
     .dropdown-menu {
-      position: absolute; top: calc(100% + 8px); left: 0;
+      position: absolute; top: 100%; left: 0;
+      padding-top: 8px;
+      background: transparent;
+      opacity: 0; pointer-events: none;
+      transition: opacity .18s, transform .18s;
+      transform: translateY(-4px);
+      z-index: 300;
+    }
+    .dropdown-menu-inner {
       background: var(--bg2); border: 1px solid var(--border);
       border-radius: 10px; padding: 6px; min-width: 200px;
-      opacity: 0; pointer-events: none; transform: translateY(-6px);
-      transition: opacity .18s, transform .18s;
-      z-index: 300;
     }
     .nav-dropdown:hover .dropdown-menu,
     .nav-dropdown:focus-within .dropdown-menu {
@@ -148,16 +153,14 @@
     .project-card:hover { border-color: #3d3d3d; transform: translateY(-2px); }
     .project-card-top { display: flex; gap: 22px; align-items: flex-start; }
     .project-thumb {
-      width: 140px; height: 140px; border-radius: 10px; overflow: hidden;
+      width: 186.5px; height: 186.5px; border-radius: 10px; overflow: hidden;
       flex-shrink: 0; border: 1px solid var(--border); background: var(--bg3);
-      align-self: stretch;
     }
-    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .project-thumb-placeholder {
-      width: 140px; height: 140px; border-radius: 10px; flex-shrink: 0;
+      width: 186.5px; height: 186.5px; border-radius: 10px; flex-shrink: 0;
       border: 1px solid var(--border); background: var(--bg3);
       display: flex; align-items: center; justify-content: center; font-size: 48px;
-      align-self: stretch;
     }
     .project-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
     .project-meta-top { font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: .04em; }
@@ -350,9 +353,11 @@
     <li class="nav-dropdown">
       <a href="#projects">Projects</a>
       <div class="dropdown-menu">
-        <a href="#professional-projects">🏢 Professional Projects</a>
-        <a href="#academic-projects">🎓 Academic Projects</a>
-        <a href="#personal-projects">🧪 Personal Projects</a>
+        <div class="dropdown-menu-inner">
+          <a href="#professional-projects">Professional Projects</a>
+          <a href="#academic-projects">Academic Projects</a>
+          <a href="#personal-projects">Personal Projects</a>
+        </div>
       </div>
     </li>
     <li><a href="#about">About</a></li>
@@ -419,15 +424,14 @@
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
 <div class="project-body">
-          <div class="project-meta-top">Untold Games · 2024–Ongoing · Unreal Engine 5 · Nintendo Switch 2</div>
-          <div class="project-title">High on Life 2</div>
-          <div class="project-subtitle">Console Porting — Co-development</div>
+          <div class="project-meta-top">Untold Games · Game Developer · 2025–Ongoing · Unreal Engine 5</div>
+          <div class="project-title">High on Life 2 - Nintendo Switch 2 Port</div>
       <p class="project-desc">
         Co-development porting of the sequel to Squanch Games' flagship title for Nintendo Switch 2.
         Focus on stability, performance and bug resolution in close collaboration with QA.
       </p>
       <div class="project-tags">
-        <span class="tag">UE5</span><span class="tag">Switch 2</span><span class="tag">Co-Dev</span>
+        <span class="tag">Co-Dev</span>
         <span class="tag">Optimization</span><span class="tag">Bug Fixing</span>
       </div>
       </div></div>
@@ -445,15 +449,14 @@
                alt="High on Life" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🎮'">
         </div>
 <div class="project-body">
-          <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch / Switch 2</div>
-          <div class="project-title">High on Life</div>
-          <div class="project-subtitle">Console Porting — Switch & Switch 2</div>
+          <div class="project-meta-top">Untold Games · Game Developer · 2024–2025 · Unreal Engine 4</div>
+          <div class="project-title">High on Life - Nintendo Switch / Switch 2 Port</div>
       <p class="project-desc">
         Full porting of Squanch Games' award-winning FPS comedy game to Nintendo Switch and Switch 2.
         Extensive CPU profiling, optimization and platform-specific bug fixing across both hardware targets.
       </p>
       <div class="project-tags">
-        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Switch 2</span>
+        
         <span class="tag">CPU Optimization</span><span class="tag">Unreal Insights</span>
       </div>
       </div></div>
@@ -471,15 +474,14 @@
                alt="Police Simulator" onerror="this.parentElement.className='project-thumb-placeholder'; this.parentElement.innerHTML='🚔'">
         </div>
 <div class="project-body">
-          <div class="project-meta-top">Untold Games · 2024 · Unreal Engine 5 · Nintendo Switch</div>
-          <div class="project-title">Police Simulator: Patrol Officers</div>
-          <div class="project-subtitle">Console Porting — Switch</div>
+          <div class="project-meta-top">Untold Games · Game Developer · 2024 · Unreal Engine 4</div>
+          <div class="project-title">Police Simulator: Patrol Officers -<br>Nintendo Switch and Playstation 4 / 5 Port</div>
       <p class="project-desc">
         Porting of Aesir Interactive's open-world police simulation game to Nintendo Switch.
         Bug fixing, performance work and a dedicated UI Design Document for Switch adaptation.
       </p>
       <div class="project-tags">
-        <span class="tag">UE5</span><span class="tag">Switch</span><span class="tag">Bug Fixing</span>
+        <span class="tag">Bug Fixing</span>
         <span class="tag">UI Design</span><span class="tag">Competitor Analysis</span>
       </div>
       </div></div>
@@ -497,7 +499,7 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">⏱️</div>
 <div class="project-body">
-          <div class="project-meta-top">Politecnico di Milano · 2019–2020 · Unity · Team of 5</div>
+          <div class="project-meta-top">Polytechnic University of Milan · Game Director / Lead Designer · 2019–2020 · Unity · Team of 5</div>
           <div class="project-title">Hindering</div>
           <div class="project-subtitle">3D Time-Manipulation Puzzle Platformer</div>
       <p class="project-desc">
@@ -520,7 +522,7 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">🧠</div>
 <div class="project-body">
-          <div class="project-meta-top">AnotheReality · 2019–2020 · Unreal Engine 4 · IEEE Published</div>
+          <div class="project-meta-top">AnotheReality · Technical Game Designer · 2019–2020 · Unity</div>
           <div class="project-title">CollaborativeMaze</div>
           <div class="project-subtitle">VR Co-op Game + AI Procedural Content Generation Tool</div>
       <p class="project-desc">
@@ -544,7 +546,7 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">🏹</div>
 <div class="project-body">
-          <div class="project-meta-top">Digital Bros Game Academy · 2022 · Unity · Team of 4 · Android</div>
+          <div class="project-meta-top">Digital Bros Game Academy · Game Designer · 2022 · Unity · Team of 4</div>
           <div class="project-title">Paper Arrow</div>
           <div class="project-subtitle">3D Hyper-casual Mobile Action</div>
       <p class="project-desc">
@@ -570,9 +572,8 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">🕹️</div>
 <div class="project-body">
-          <div class="project-meta-top">2020–Ongoing · Various Engines · itch.io</div>
+          <div class="project-meta-top">Project Manager / Game Designer and Programmer · 2020–Ongoing · Various Engines · itch.io</div>
           <div class="project-title">Game Jams</div>
-          <div class="project-subtitle">Project Manager, Game Designer & Programmer</div>
       <p class="project-desc">
         A collection of games developed for various international jams and internal jam events at Untold Games.
         Key role in brainstorming, task management and hands-on development across all entries.
@@ -593,9 +594,8 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">🧬</div>
 <div class="project-body">
-          <div class="project-meta-top">Personal · 2020 · Unreal Engine 4 · Python / TensorFlow</div>
+          <div class="project-meta-top">Technical Game Designer · 2020 · Unreal Engine 4 · Python / TensorFlow</div>
           <div class="project-title">Neuroevolution Driving</div>
-          <div class="project-subtitle">AI Self-driving Car via Neural Networks</div>
       <p class="project-desc">
         A neural network trained with neuroevolutionary techniques to drive a vehicle around a track
         without crashing. Built on UE4's VehicleAdvanced template with TensorFlow integration via plugin.
@@ -616,9 +616,8 @@
         <div class="project-card-top">
         <div class="project-thumb-placeholder">🏠</div>
 <div class="project-body">
-          <div class="project-meta-top">Personal · 2020 · Unreal Engine 4</div>
+          <div class="project-meta-top">Technical Game Designer · 2020 · Unreal Engine 4 · Behaviour Trees / EQS</div>
           <div class="project-title">DailyLife Simulator</div>
-          <div class="project-subtitle">NPC AI with Behaviour Trees & EQS</div>
       <p class="project-desc">
         A personal deep-dive into Unreal's Behaviour Trees and Environment Query System.
         NPCs perform a realistic daily routine including solo and cooperative activities,
@@ -1027,7 +1026,8 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('open');
     document.body.style.overflow = 'hidden';
