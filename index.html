@@ -264,7 +264,7 @@
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal {
       background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
-      width: 100%; max-width: 680px; max-height: 88vh; overflow-y: auto;
+      width: 100%; max-width: 900px; max-height: 88vh; overflow-y: auto;
       transform: translateY(20px); transition: transform .25s;
       scrollbar-width: thin; scrollbar-color: var(--border) transparent;
     }
@@ -344,7 +344,7 @@
 <nav>
   <a href="#intro" class="nav-brand">
     <div class="nav-brand-icon">
-      <img src="assets/avatar.jpg" alt="Umberto Picariello" onerror="this.parentElement.innerHTML='🎮'">
+      <img src="assets/propic/avatar.jpg" alt="Umberto Picariello" onerror="this.parentElement.innerHTML='🎮'">
     </div>
     <span class="nav-brand-name">Umberto Picariello</span>
   </a>
@@ -372,7 +372,7 @@
   <section id="intro">
     <div class="hero">
       <div class="hero-photo">
-        <img src="assets/avatar.jpg" alt="Umberto Picariello" onerror="this.style.display='none'">
+        <img src="assets/propic/propic.png" alt="Umberto Picariello" onerror="this.style.display='none'">
       </div>
       <div class="hero-text">
         <h1>Hi, I'm Umberto.</h1>
@@ -491,7 +491,7 @@
     <!-- Hindering -->
     <div class="project-card" onclick="openModal('hindering')">
         <div class="project-card-top">
-        <div class="project-thumb"><img src="data:image/png;base64,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" alt="Hindering"></div>
+        <div class="project-thumb"><img src="assets/hindering/hindering_icon.png" alt="Hindering"></div>
 <div class="project-body">
           <div class="project-meta-top">Polytechnic of Milan · Game Director / Designer · 2019–2020 · Unity · Team of 5</div>
           <div class="project-title">Hindering</div>
@@ -537,7 +537,7 @@
     <!-- Paper Arrow -->
     <div class="project-card" onclick="openModal('paperarrow')">
         <div class="project-card-top">
-        <div class="project-thumb-placeholder">🏹</div>
+        <div class="project-thumb"><img src="assets/paperarrow/paperarrow_icon.png" alt="Paper Arrow"></div>
 <div class="project-body">
           <div class="project-meta-top">Digital Bros Game Academy · Game Designer · 2022 · Unity · Team of 4</div>
           <div class="project-title">Paper Arrow</div>
@@ -885,7 +885,9 @@
       <button class="modal-close" onclick="closeModalById('maze')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="modal-cover-placeholder">🧠</div>
+      <div class="modal-cover">
+        <img src="assets/collaborativemaze/collaborativemaze_trailer.gif" alt="CollaborativeMaze Trailer" style="width:100%;border-radius:8px;">
+      </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">Final thesis project developed in collaboration with startup AnotheReality. I designed a VR collaborative game for corporate team-building activities and built a tool that procedurally generates game instances of desired difficulty. Difficulty is measured by AI agents with different human-like behaviours (prudent, aggressive, smart) that simulate gameplay and produce intensity diagrams. Published in IEEE scientific journal.</p>
       <div class="modal-section-title">My Contributions</div>
@@ -900,6 +902,7 @@
         <span class="tag">C#</span><span class="tag">VR</span><span class="tag">Agent Simulation</span><span class="tag">Procedural Content Generation</span>
       </div>
       <div class="modal-actions">
+        <a href="https://www.politesi.polimi.it/retrieve/03bb948d-1e0c-492f-88ec-eef11ec8cac1/MasterThesis_Picariello.pdf" target="_blank" class="play-btn">📄 MSc Thesis</a>
         <a href="https://ieeexplore.ieee.org/document/9308431" target="_blank" class="play-btn">📄 Read IEEE Paper</a>
       </div>
     </div>
