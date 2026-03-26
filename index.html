@@ -213,16 +213,16 @@
     /* Experience timeline */
     .exp-list { display: flex; flex-direction: column; gap: 0; }
     .exp-item {
-      display: flex; gap: 20px; padding: 20px 0;
+      display: flex; gap: 8px; padding: 4px 0;
       border-bottom: 1px solid var(--border);
     }
     .exp-item:last-child { border-bottom: none; }
-    .exp-date { font-size: 11.5px; color: var(--muted); min-width: 110px; padding-top: 2px; }
+    .exp-date { font-size: 11px; color: var(--muted); min-width: 50px; padding-top: 2px; }
     .exp-date .current { color: var(--accent); font-weight: 600; }
     .exp-body {}
-    .exp-role { font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-    .exp-company { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
-    .exp-desc { font-size: 13px; color: var(--muted); }
+    .exp-role { font-family: 'Geist', sans-serif; font-size: 12.5px; font-weight: 700; margin-bottom: 1px; }
+    .exp-company { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 3px; }
+    .exp-desc { font-size: 12px; color: var(--muted); }
 
     /* ── CV CARD ── */
     .cv-card {
@@ -364,7 +364,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="assets/resume.pdf" download class="btn-nav">⬇ Download CV</a>
+  <a href="assets/resume/resume.pdf" download class="btn-nav">⬇ Download CV</a>
 </nav>
 
 <div class="page">
@@ -660,52 +660,57 @@
       </div>
     </div>
 
-    <div class="section-label" style="margin-top:40px;">Education</div>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date">10/2022<br>07/2023</div>
-        <div class="exp-body">
-          <div class="exp-role">Game Design</div>
-          <div class="exp-company">Digital Bros Game Academy — Milan</div>
-          <div class="exp-desc">Professional training in game design, level design, and game production. Developed Paper Arrow and Torment as the main graduation team projects.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">09/2018<br>07/2020</div>
-        <div class="exp-body">
-          <div class="exp-role">MSc Computer Science</div>
-          <div class="exp-company">Politecnico di Milano — Milan</div>
-          <div class="exp-desc">Master's Degree in Computer Science with Honours (110/110 cum laude). Thesis on AI-driven Procedural Content Generation for VR games, published in IEEE scientific journal.</div>
-        </div>
-      </div>
-    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px;">
 
-    <div class="section-label" style="margin-top:40px;">Experience</div>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date">02/2024<br><span class="current">Ongoing</span></div>
-        <div class="exp-body">
-          <div class="exp-role">Unreal Engine 5 Videogame Developer</div>
-          <div class="exp-company">Untold Games — Genoa</div>
-          <div class="exp-desc">Console porting for Nintendo, Microsoft and Sony platforms. CPU optimization (physics, AI, animations), critical bug fixing via Jira, performance analysis with Unreal Insights and Nintendo SDK tools.</div>
+      <!-- Education -->
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:20px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; margin-bottom:16px;">Education</div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-date">10/2022<br>07/2023</div>
+            <div class="exp-body">
+              <div class="exp-role">Game Design</div>
+              <div class="exp-company">Digital Bros Game Academy — Milan</div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">09/2018<br>07/2020</div>
+            <div class="exp-body">
+              <div class="exp-role">MSc Computer Science</div>
+              <div class="exp-company">Politecnico di Milano — Milan</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">11/2020<br>11/2022</div>
-        <div class="exp-body">
-          <div class="exp-role">VR/AR Unreal Engine 4 Developer</div>
-          <div class="exp-company">ACCA Software — Avellino</div>
-          <div class="exp-desc">Real-time streaming renderings via Pixel Streaming and Node.js. Procedural mesh generation using geographic public data. Designed and implemented diverse VR and AR features.</div>
+
+      <!-- Experience -->
+      <div style="background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:20px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; margin-bottom:16px;">Experience</div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-date">02/2024<br><span class="current">Ongoing</span></div>
+            <div class="exp-body">
+              <div class="exp-role">Unreal Engine 5 Videogame Developer</div>
+              <div class="exp-company">Untold Games — Genoa</div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">11/2020<br>11/2022</div>
+            <div class="exp-body">
+              <div class="exp-role">VR/AR Unreal Engine 4 Developer</div>
+              <div class="exp-company">ACCA Software — Avellino</div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">05/2019<br>07/2020</div>
+            <div class="exp-body">
+              <div class="exp-role">Junior Game Designer and Programmer</div>
+              <div class="exp-company">AnotheReality — Milan</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="exp-item">
-        <div class="exp-date">05/2019<br>07/2020</div>
-        <div class="exp-body">
-          <div class="exp-role">Junior Game Designer and Programmer</div>
-          <div class="exp-company">AnotheReality — Milan</div>
-          <div class="exp-desc">Designed a VR experience for team-building and built an in-house tool to generate and test game instances using AI. Work published in an IEEE scientific journal.</div>
-        </div>
-      </div>
+
     </div>
 
     <!-- CV Download -->
@@ -717,7 +722,7 @@
           <div class="cv-sub">Umberto Picariello — Technical Game Designer</div>
         </div>
       </div>
-      <a href="assets/resume.pdf" download class="play-btn">⬇ Download PDF</a>
+      <a href="assets/resume/resume.pdf" download class="play-btn">⬇ Download PDF</a>
     </div>
   </section>
 
