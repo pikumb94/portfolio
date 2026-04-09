@@ -325,16 +325,53 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 620px) {
-      .hero { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .hero-stats-col { flex-direction: row; width: 100%; }
-      .hero-photo { width: 100%; height: 200px; }
+      /* Layout */
+      .page { padding: 70px 16px 48px; }
+
+      /* Navbar */
       nav { padding: 0 16px; }
       .nav-links { display: none; }
+      .btn-nav { font-size: 12px; padding: 6px 12px; }
+
+      /* Hero */
+      .hero { flex-direction: column; align-items: flex-start; gap: 16px; padding: 32px 0 12px; }
+      .hero-photo { width: 100%; height: 220px; }
+      .hero-stats-col { flex-direction: row; width: 100%; gap: 10px; }
+      .hero-stat-box { min-width: 0; flex: 1; padding: 12px 10px; }
+      .hero-text h1 { font-size: 28px; }
+      .hero-text p { max-width: 100%; }
+
+      /* Project cards */
+      .project-card-top { flex-direction: column; gap: 14px; }
+      .project-thumb { width: 100%; height: 180px; }
+      .project-footer { flex-wrap: wrap; gap: 8px; }
+
+      /* About grid */
       .about-grid { grid-template-columns: 1fr; }
-      .contact-card { flex-direction: column; padding: 28px 24px; }
-      .contact-actions { align-items: flex-start; }
-      .modal { max-height: 95vh; }
-      .exp-item { flex-direction: column; gap: 4px; }
+
+      /* Education/Experience two columns → one column */
+      div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+      /* Game jams grid */
+      div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+
+      /* Neuroevolution training grid */
+      div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+
+      /* Contact */
+      .contact-card { flex-direction: column; padding: 28px 20px; }
+      .contact-actions { align-items: flex-start; flex-wrap: wrap; }
+
+      /* Modal */
+      .modal { max-height: 95vh; margin: 0 8px; }
+      .modal-header { flex-direction: column; gap: 8px; }
+      .modal-actions { flex-wrap: wrap; }
+
+      /* CV card */
+      .cv-card { flex-direction: column; padding: 20px; gap: 16px; }
+
+      /* Exp items */
+      .exp-item { flex-direction: column; gap: 2px; }
     }
   </style>
 </head>
@@ -759,7 +796,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="assets/covers/hol2_cover.jpg" alt="High on Life 2">
+        <img src="" data-src="assets/covers/hol2_cover.jpg" alt="High on Life 2">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">I'm working on bringing High on Life 2 to Nintendo Switch 2 in a co-dev setup with Squanch Games. It's an ongoing project so there's a lot of communication with the original team through Slack. Issues, bugs and tasks are taken care of as development moves forward.</p>
@@ -789,7 +826,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="assets/covers/hol1_cover.jpg" alt="High on Life">
+        <img src="" data-src="assets/covers/hol1_cover.jpg" alt="High on Life">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">My first big porting project at Untold Games. High on Life is a bizarre FPS by Squanch Games and getting it to run well on Switch, and later Switch 2, was genuinely challenging. The hardware constraints forced me to really understand how Unreal manages game threads and tasks, which made me aware of the "anatomy" of the engine.</p>
@@ -821,7 +858,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/capsule_616x353.jpg" alt="Police Simulator">
+        <img src="" data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/capsule_616x353.jpg" alt="Police Simulator">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">Porting Police Simulator to Switch was interesting because it wasn't just a technical job, but involved technical UI design skills. The original PC/console interface didn't translate well to Switch's screen size and resolution, so I had to rethink how players would interact with it. I ended up doing proper competitor research for open-world games on Switch before writing the design documentation with the proposed solution.</p>
@@ -852,7 +889,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="assets/hindering/hindering_trailer.gif" alt="Hindering Trailer" style="width:100%;border-radius:8px;">
+        <img src="" data-src="assets/hindering/hindering_trailer.gif" alt="Hindering Trailer" style="width:100%;border-radius:8px;">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">This was my first leading role experience. I pitched the concept during the university course, which was ranked among the top proposals (out of ~100) and selected for development; suddenly I was responsible for a team of 5.<br><br>You wake up as a mysterious child in a laboratory facility, but soon you discover that you can manipulate time by making it flow or stop. When time stops you can move but when time flows you can't. You will be able to channel forces onto objects to make them move and solve the tests that scientists planned for you...but nothing is what it seems and soon you will discover the secrets behind the laboratory.</p>
@@ -885,7 +922,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="assets/collaborativemaze/collaborativemaze_trailer.gif" alt="CollaborativeMaze Trailer" style="width:100%;border-radius:8px;">
+        <img src="" data-src="assets/collaborativemaze/collaborativemaze_trailer.gif" alt="CollaborativeMaze Trailer" style="width:100%;border-radius:8px;">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">My MSc thesis, done in collaboration with AnotheReality. The idea was to build a VR co-op game for corporate team-building and a tool that could automatically generate maze instances at a target difficulty level. The difficulty was validated by simulating gameplay with AI agents that behaved like real player archetypes — cautious, aggressive, or smart. The research ended up getting published on IEEE.</p>
@@ -917,7 +954,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-cover">
-        <img src="assets/paperarrow/paperarrow_trailer.gif" alt="Paper Arrow Trailer" style="width:100%;border-radius:8px;">
+        <img src="" data-src="assets/paperarrow/paperarrow_trailer.gif" alt="Paper Arrow Trailer" style="width:100%;border-radius:8px;">
       </div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">A hyper-casual mobile game made during the Game Design course at Digital Bros Game Academy. You're an arrow flying through Japanese-themed levels: dodge civilians, kill only ninjas, beat the boss. Simple premise, but mastering the enemy patterns and the boss fight is what allows you to score the maximum. We worked in Scrum with Trello, which was my first taste of a more structured production pipeline.</p>
@@ -961,7 +998,7 @@
 
         <!-- Shut up and Kill me! -->
         <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; flex-direction:column;">
-          <img src="assets/gamejams/shutupandkillme_cover.png" alt="Shut up and Kill me!" style="width:100%; aspect-ratio:1; object-fit:cover;">
+          <img src="" data-src="assets/gamejams/shutupandkillme_cover.png" alt="Shut up and Kill me!" style="width:100%; aspect-ratio:1; object-fit:cover;">
           <div style="padding:10px; display:flex; flex-direction:column; gap:6px; flex:1;">
             <div style="font-size:11px; color:var(--accent); font-weight:600;">Internal Jam · Team of 5</div>
             <div style="font-size:13px; font-weight:700; color:var(--text);">Shut up and Kill me!</div>
@@ -975,7 +1012,7 @@
 
         <!-- Mætʃ -->
         <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; flex-direction:column;">
-          <img src="assets/gamejams/maetch_cover.png" alt="Mætʃ" style="width:100%; aspect-ratio:1; object-fit:cover;">
+          <img src="" data-src="assets/gamejams/maetch_cover.png" alt="Mætʃ" style="width:100%; aspect-ratio:1; object-fit:cover;">
           <div style="padding:10px; display:flex; flex-direction:column; gap:6px; flex:1;">
             <div style="font-size:11px; color:var(--accent); font-weight:600;"><a href="https://itch.io/jam/metroidvania-month-30/rate/4123333" target="_blank" style="color:var(--accent); text-decoration:underline;"><strong>Metroidvania Month 30</strong></a> 37th / 122 · Team of 2</div>
             <div style="font-size:13px; font-weight:700; color:var(--text);">Mætʃ</div>
@@ -989,7 +1026,7 @@
 
         <!-- CRT.exe -->
         <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; flex-direction:column;">
-          <img src="assets/gamejams/crtexe_cover.png" alt="CRT.exe" style="width:100%; aspect-ratio:1; object-fit:cover;">
+          <img src="" data-src="assets/gamejams/crtexe_cover.png" alt="CRT.exe" style="width:100%; aspect-ratio:1; object-fit:cover;">
           <div style="padding:10px; display:flex; flex-direction:column; gap:6px; flex:1;">
             <div style="font-size:11px; color:var(--accent); font-weight:600;"><a href="https://itch.io/jam/brackeys-15/rate/4310469" target="_blank" style="color:var(--accent); text-decoration:underline;"><strong>Brackeys 2026.1</strong></a> 342nd / 1429 · Team of 8</div>
             <div style="font-size:13px; font-weight:700; color:var(--text);">CRT.exe</div>
@@ -1021,7 +1058,7 @@
       <button class="modal-close" onclick="closeModalById('neuro')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="modal-cover"><img src="assets/neuroevolution/neuroevolution_trailer.gif" alt="Neuroevolution Trailer" style="width:100%;border-radius:8px;"></div>
+      <div class="modal-cover"><img src="" data-src="assets/neuroevolution/neuroevolution_trailer.gif" alt="Neuroevolution Trailer" style="width:100%;border-radius:8px;"></div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">I've always been curious about AI and machine learning, especially its application to videogames. I used UE4's advanced vehicle template as a starting point and imported the Unreal Engine Python plugin: it embeds a whole Python VM that can be used in editor and, most importantly, at runtime! After I imported it I had access to all the AI Python libraries and decided to use TensorFlow to train agents using neuroevolution: basically letting a population of cars evolve over generations until they could drive a full track without crashing. What I found most interesting was testing whether agents trained on harder tracks could generalise better to new tracks. As per the basic rules of Machine Learning, the train set should be the most exhaustive possible so that the best learned model can generalize better on all the possible tracks.</p>
       <div class="modal-section-title">How it works</div>
@@ -1036,14 +1073,14 @@
       <div style="margin-bottom:20px;">
         <div style="font-size:12px; color:var(--muted); margin-bottom:8px; font-style:italic;">Training:</div>
         <div style="display:flex; gap:8px; justify-content:center; margin-bottom:10px;">
-          <img src="assets/neuroevolution/train_oval.gif" alt="Train Oval" style="width:31%; border-radius:6px; border:1px solid var(--border);">
-          <img src="assets/neuroevolution/train_curve.gif" alt="Train Curve" style="width:31%; border-radius:6px; border:1px solid var(--border);">
-          <img src="assets/neuroevolution/train_complex.gif" alt="Train Complex" style="width:31%; border-radius:6px; border:1px solid var(--border);">
+          <img src="" data-src="assets/neuroevolution/train_oval.gif" alt="Train Oval" style="width:31%; border-radius:6px; border:1px solid var(--border);">
+          <img src="" data-src="assets/neuroevolution/train_curve.gif" alt="Train Curve" style="width:31%; border-radius:6px; border:1px solid var(--border);">
+          <img src="" data-src="assets/neuroevolution/train_complex.gif" alt="Train Complex" style="width:31%; border-radius:6px; border:1px solid var(--border);">
         </div>
         <div style="text-align:center; font-size:18px; color:var(--muted); margin-bottom:10px;">↓</div>
         <div style="font-size:12px; color:var(--muted); margin-bottom:8px; font-style:italic;">Test:</div>
         <div style="display:flex; justify-content:center; margin-bottom:10px;">
-          <img src="assets/neuroevolution/test_track.gif" alt="Test Track" style="width:55%; border-radius:6px; border:1px solid var(--border);">
+          <img src="" data-src="assets/neuroevolution/test_track.gif" alt="Test Track" style="width:55%; border-radius:6px; border:1px solid var(--border);">
         </div>
         <p style="font-size:12px; color:var(--muted); text-align:center; margin:0;"><strong>Testing of the best models found during Neuroevolution training.</strong><br>The agents found are tested on an unseen and irregular track: as expected, learning from simple tracks will make the car collide easily, while learning from complex tracks will make the car behave correctly.</p>
       </div>
@@ -1062,7 +1099,7 @@
       <button class="modal-close" onclick="closeModalById('dailylife')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="modal-cover"><img src="assets/dailylife/dailylife_trailer.gif" alt="DailyLife Trailer" style="width:100%;border-radius:8px;"></div>
+      <div class="modal-cover"><img src="" data-src="assets/dailylife/dailylife_trailer.gif" alt="DailyLife Trailer" style="width:100%;border-radius:8px;"></div>
       <div class="modal-section-title">Overview</div>
       <p class="modal-desc">I built this project to get comfortable with Behaviour Trees and Environment Query System in Unreal Engine. You can decide to spawn three kinds of NPCs, gradually more social, that live out a daily routine on their own: they pick activities, interact with each other when they feel like it, and go to sleep at night. No scripted sequences, all driven by the AI systems.</p>
       <div class="modal-section-title">How it works</div>
@@ -1082,8 +1119,15 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function openModal(id) {
-    document.getElementById('modal-' + id).classList.add('open');
+    const modal = document.getElementById('modal-' + id);
+    modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    // Lazy load images
+    modal.querySelectorAll('img[data-src]').forEach(img => {
+      if (!img.src || img.src === window.location.href) {
+        img.src = img.getAttribute('data-src');
+      }
+    });
   }
   function closeModalById(id) {
     document.getElementById('modal-' + id).classList.remove('open');
